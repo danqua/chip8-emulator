@@ -1,2 +1,2 @@
 # chip8-emulator
-CHIP8 Emulator
+This is a small project for me to understand how emulators work internally.
