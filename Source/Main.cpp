@@ -1,8 +1,12 @@
 #include "Chip8.h"
 #include <SDL.h>
+#include <stdlib.h>
+#include <time.h>
 
 int SDL_main(int argc, char** argv)
 {
+	srand(time_t(0));
+
 	SDL_Window* Window = SDL_CreateWindow(
 		"Chip-8 Emulator",
 		SDL_WINDOWPOS_CENTERED,
@@ -31,7 +35,7 @@ int SDL_main(int argc, char** argv)
 
 	CPU.Initialize();
 
-	if (CPU.LoadROM("IBMLogo.ch8"))
+	if (CPU.LoadROM("PONG.ch8"))
 	{
 		while (IsRunning)
 		{

@@ -30,12 +30,12 @@ struct cpu
 	byte Registers[16];			// 16 8-bit registers.
 	word Stack[16];				// Stores the address that the interpreter should return to when finished with a subroutine.
 	word IndexRegister;			// Special 16-bit register to store memory addresses.
-	byte DelayTimerRegister;	// When non-zero, it automatically decrements at a rate of 60Hz.
-	byte SoundTimerRegister;	// When non-zero, it automatically decrements at a rate of 60Hz.
+	byte DelayTimer;			// When non-zero, it automatically decrements at a rate of 60Hz.
+	byte SoundTimer;			// When non-zero, it automatically decrements at a rate of 60Hz.
 	word ProgramCounter;		// Stores the currently executing address.
 	byte StackPointer;			// Points to the topmost level of the stack.
 	byte Keypad;				// 16-key hexadecimal keypad
-	byte Display[64 * 32];			// 64 * 32 pixel monochrome display
+	byte Display[64 * 32];		// 64 * 32 pixel monochrome display
 	word Opcode;				// Caches the current opcode
 	bool DrawFlag;				// Indicates if the screen should be redrawn
 
@@ -48,7 +48,7 @@ struct cpu
 	// Clears the display buffer
 	void ClearDisplay();
 
-	// Fetch the instruction from memory at the current PC
+	// Fetches the instruction from memory at the current PC
 	void Fetch();
 
 	// Decodes the instruction and executes it
